@@ -1,0 +1,244 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Mock_Nailted backend",
+    "description": "API de gestión de formularios Nailted"
+  },
+  "tags": [
+    {
+      "name": "Última versión del formulario",
+      "description": "Endpoints relacionados con la última versión del formulario"
+    },
+    {
+      "name": "Feedback global",
+      "description": "Endpoints relacionados con el feedback global"
+    },
+    {
+      "name": "Feedback RRHH",
+      "description": "Endpoints relacionados con el feedback de RRHH"
+    },
+    {
+      "name": "Feedback preguntas",
+      "description": "Endpoints relacionados con el feedback de preguntas específicas"
+    },
+    {
+      "name": "Presentación",
+      "description": "Endpoints relacionados con la presentación de formularios"
+    }
+  ],
+  "paths": {
+    "/form/last_version": {
+      "get": {
+        "summary": "Obtener la última versión del formulario",
+        "tags": ["Última versión del formulario"],
+        "responses": {
+          "200": {
+            "description": "El formulario que contiene los cuatro tipos de preguntas",
+            "schema": {
+              "$ref": "#/definitions/Form"
+            }
+          }
+        }
+      }
+    },
+    "/feedback/global/{range}": {
+      "get": {
+        "summary": "Obtener feedback global basado en un rango",
+        "tags": ["Feedback global"],
+        "parameters": [
+          {
+            "name": "range",
+            "in": "path",
+            "description": "Rango para el cálculo del feedback",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Feedback global obtenido exitosamente",
+            "schema": {
+              "$ref": "#/definitions/Feedback"
+            }
+          }
+        }
+      }
+    },
+    "/feedback/rrhh/{range}": {
+      "get": {
+        "summary": "Obtener feedback de RRHH basado en un rango",
+        "tags": ["Feedback RRHH"],
+        "parameters": [
+          {
+            "name": "range",
+            "in": "path",
+            "description": "Rango para el cálculo del feedback",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Feedback de RRHH obtenido exitosamente",
+            "schema": {
+              "$ref": "#/definitions/Feedback"
+            }
+          }
+        }
+      }
+    },
+    "/feedback/questions/{range}": {
+      "get": {
+        "summary": "Obtener feedback de una pregunta específica basado en un rango",
+        "tags": ["Feedback preguntas"],
+        "parameters": [
+          {
+            "name": "range",
+            "in": "path",
+            "description": "Rango para el cálculo del feedback",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Feedback de la pregunta obtenido exitosamente",
+            "schema": {
+              "$ref": "#/definitions/Feedback"
+            }
+          }
+        }
+      }
+    },
+    "/submission/": {
+      "post": {
+        "summary": "Crear una nueva presentación",
+        "tags": ["Presentación"],
+        "responses": {
+          "200": {
+            "description": "Presentación creada exitosamente",
+            "schema": {
+              "$ref": "#/definitions/Submission"
+            }
+          }
+        }
+      }
+    },
+    "/submission/add-email": {
+      "patch": {
+        "summary": "Agregar correo electrónico a una presentación existente",
+        "tags": ["Presentación"],
+        "responses": {
+          "200": {
+            "description": "Correo electrónico agregado exitosamente",
+            "schema": {
+              "$ref": "#/definitions/Submission"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Form": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Question"
+          }
+        }
+      }
+    },
+    "Question": {
+      "type": "object",
+      "properties": {
+        "question_id": {
+          "type": "integer"
+        },
+        "category": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "question": {
+          "type": "string"
+        },
+        "optionsNumber": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NumberOption"
+          }
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Option"
+          }
+        }
+      }
+    },
+    "NumberOption": {
+      "type": "object",
+      "properties": {
+        "range": {
+          "type": "object"
+        },
+        "points": {
+          "type": "integer"
+        }
+      }
+    },
+    "Option": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "points": {
+          "type": "integer"
+        }
+      }
+    },
+    "Feedback": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "result": {
+          "type": "integer"
+        }
+      }
+    },
+    "Submission": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Question"
+          }
+        }
+      }
+    }
+  }
+}

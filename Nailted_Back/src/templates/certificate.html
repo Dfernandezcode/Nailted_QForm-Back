@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{submissionId}} Certificate</title>
+    <style>
+      .pdf-body {
+        height: 680px;
+        margin: 25px 25px 25px 25px;
+        padding: 25px 0 0 0;
+        font-family: Helvetica, sans-serif;
+        border: 10px solid #179bf6;
+        border-radius: 10px;
+      }
+
+      .certificate {
+        width: 50%;
+        height: 95vh;
+        margin: 0 auto;
+      }
+
+      .certificate__header {
+        font-size: 44px;
+        color: #179bf6;
+        text-align: center;
+        margin: 30px 0 0 0;
+        padding: 0;
+      }
+
+      .certificate__subtext {
+        font-size: 28px;
+        color: #50515a;
+        text-align: center;
+        margin: 0 0 30px 0;
+        padding: 0;
+      }
+
+      .certificate__client {
+        font-size: 40px;
+        color: #179bf6;
+        background-color: #e6f1f9;
+        width: 400px;
+        border-radius: 5px;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+      }
+
+      .certificate__text {
+        font-size: 24px;
+        color: #50515a;
+        width: 400px;
+        text-align: center;
+        margin: 20px auto 0 auto;
+        padding: 0;
+      }
+
+      .certificate__date {
+        font-size: 20px;
+        color: #179bf6;
+        text-align: center;
+        margin: 10px 0 50px 0;
+        padding: 0;
+      }
+
+      .certificate__textarea {
+        width: 300px;
+        border-top: #50515a solid 1px;
+        margin: 0 auto;
+        padding: 0;
+      }
+
+      .certificate__textarea-name {
+        font-size: 24px;
+        color: #179bf6;
+        text-align: center;
+        font-weight: bold;
+        margin: 10px 0 0 0;
+        padding: 0;
+      }
+
+      .certificate__textarea-title {
+        font-size: 20px;
+        color: #a7a9bc;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+      }
+
+      .certificate__logo {
+        width: 200px;
+        margin: 10px auto;
+        padding-bottom: 50px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body class="pdf-body">
+    <div class="certificate">
+      <h1 class="certificate__header">Certificado de excelencia</h1>
+      <p class="certificate__subtext">entregado a:</p>
+      <h2 class="certificate__client">{{userNameCompany}}</h2>
+      <p class="certificate__text">El presente certificado de valoración tiene el honor de ser otorgado a {{userNameCompany}}, en reconocimiento a su destacado desempeño y valiosa contribución al mundo empresarial.</p>
+      <p class="certificate__date">{{date}}</p>
+      <div class="certificate__textarea">
+        <p class="certificate__textarea-name">Antón López</p>
+        <p class="certificate__textarea-title">Founder & Managing Director.</p>
+      </div>
+      <img class="certificate__logo" src="data:image/png;base64,{{ imageBase64 }}" alt="Certificate Image" />
+    </div>
+  </body>
+</html>

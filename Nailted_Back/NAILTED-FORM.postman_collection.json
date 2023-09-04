@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "53b2422e-f911-49e0-ad8e-3dc891a720c4",
+		"name": "NAILTED-FORM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26678393",
+		"_collection_link": "https://lunar-shadow-598419.postman.co/workspace/Daniel-Ruiz-Workspace~bb2fabbe-669e-40aa-85ab-0d5b9d85e36d/collection/26678393-53b2422e-f911-49e0-ad8e-3dc891a720c4?action=share&creator=26678393&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "FORMS",
+			"item": [
+				{
+					"name": "Get All Forms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OTBkZWIyMTVlY2Y2NGEyZjEyMjZjZCIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNjg3MjE3MDU0LCJleHAiOjE2ODczMDM0NTR9.itrjQXC2m5kkZtWbTMYiM1EnKkmpCGioZkJw2K7u29Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGVlYzEwYWJiNGFkMDRlODQ0YWMwMSIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNjg3MDkxNjgwLCJleHAiOjE2ODcxNzgwODB9.gq63oer9OujB6ICblqiCnGGc6CDbsJJQTTPicOc9_xE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/form",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"form"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Form Last Version",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OTBkZWIyMTVlY2Y2NGEyZjEyMjZjZCIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNjg3MjE3MDU0LCJleHAiOjE2ODczMDM0NTR9.itrjQXC2m5kkZtWbTMYiM1EnKkmpCGioZkJw2K7u29Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGVlYzEwYWJiNGFkMDRlODQ0YWMwMSIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNjg3MDkxNjgwLCJleHAiOjE2ODcxNzgwODB9.gq63oer9OujB6ICblqiCnGGc6CDbsJJQTTPicOc9_xE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/form/last-version",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"form",
+								"last-version"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SUBMISSION",
+			"item": [
+				{
+					"name": "Get All Submissions Paginated",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OTBkZWIyMTVlY2Y2NGEyZjEyMjZjZCIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNjg3MjE3MDU0LCJleHAiOjE2ODczMDM0NTR9.itrjQXC2m5kkZtWbTMYiM1EnKkmpCGioZkJw2K7u29Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGVlYzEwYWJiNGFkMDRlODQ0YWMwMSIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNjg3MDkxNjgwLCJleHAiOjE2ODcxNzgwODB9.gq63oer9OujB6ICblqiCnGGc6CDbsJJQTTPicOc9_xE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/submission/all?limit=5&page=2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"submission",
+								"all"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "page",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Feedback by Submission Id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/submission/get-feedback/64b55c386e6970976f6a792e",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"submission",
+								"get-feedback",
+								"64b55c386e6970976f6a792e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Submission",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGVlYzEwYWJiNGFkMDRlODQ0YWMwMSIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNjg3MDkxNjgwLCJleHAiOjE2ODcxNzgwODB9.gq63oer9OujB6ICblqiCnGGc6CDbsJJQTTPicOc9_xE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"form\": \"64aea1b254dec881bbf6b64c\",\r\n    \"answers\": [\r\n        {\r\n            \"answer\": [\r\n                \"En Madrid\"\r\n            ],\r\n            \"question_text\": \"¿Dónde se ubica la sede de tu empresa?\"\r\n        },\r\n        {\r\n            \"answer\": [\r\n                \"11\"\r\n            ],\r\n            \"question_text\": \"¿Cuántos millones de euros facturo tu empresa el año pasado?\"\r\n        },\r\n        {\r\n            \"answer\": [\r\n                \"Comercio electrónico\",\r\n                \"Servicios\"\r\n            ],\r\n            \"question_text\": \"¿En que sectores trabaja tu empresa?\"\r\n        },\r\n        {\r\n            \"answer\": [\r\n                \"de 0 a 2\"\r\n            ],\r\n            \"question_text\": \"¿Cúantos líneas de crédito tiene tu empresa?\"\r\n        },\r\n        {\r\n            \"answer\": [\r\n                \"BBVA\"\r\n            ],\r\n            \"question_text\": \"Escribe el nombre del banco con el que trabajas\"\r\n        },\r\n        {\r\n            \"answer\": [\r\n                \"22\"\r\n            ],\r\n            \"question_text\": \"¿Cuántas operaciones realizas al año?\"\r\n        },\r\n        {\r\n            \"answer\": [\r\n                \"BBVA\",\r\n                \"ING\"\r\n            ],\r\n            \"question_text\": \"¿Con qué bancos trabajas?\"\r\n        },\r\n        {\r\n            \"answer\": [\r\n                \"de 21 a 50\"\r\n            ],\r\n            \"question_text\": \"¿Cúantas operaciones de inversión realizaste con estos bancos en el último año?\"\r\n        },\r\n        {\r\n            \"answer\": [\r\n                \"Antoni Rosi\"\r\n            ],\r\n            \"question_text\": \"¿Nombre del jefe de RRHH?\"\r\n        },\r\n        {\r\n            \"answer\": [\r\n                \"12\"\r\n            ],\r\n            \"question_text\": \"¿Cuántos empleados tiene tu empresa?\"\r\n        },\r\n        {\r\n            \"answer\": [\r\n                \"COMPRAS\",\r\n                \"VENTAS\"\r\n            ],\r\n            \"question_text\": \"¿En que departamentos hay más personal?\"\r\n        },\r\n        {\r\n            \"answer\": [\r\n                \"de 3 a 5\"\r\n            ],\r\n            \"question_text\": \"¿Cúantos departamentos tiene tu empresa?\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/submission/create-submission",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"submission",
+								"create-submission"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add User Email to Submission And  send Pdf to UserMail",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGVlYzEwYWJiNGFkMDRlODQ0YWMwMSIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNjg3MDkxNjgwLCJleHAiOjE2ODcxNzgwODB9.gq63oer9OujB6ICblqiCnGGc6CDbsJJQTTPicOc9_xE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"submissionId\": \"64b50f19008ce54b26fc62ff\",\r\n    \"userMail\": \"daniel000ruiz@yahoo.es\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/submission/add-email-to-submission-and-send-pdf",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"submission",
+								"add-email-to-submission-and-send-pdf"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

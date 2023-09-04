@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{submissionId}}</title>
+    <style>
+      .results-pdf {
+        margin: 0 auto;
+      }
+
+      .results-pdf__header {
+        overflow: hidden;
+        position: fixed;
+        top: 15px;
+        left: 20px;
+        right: 20px;
+        padding-bottom: 25px;
+      }
+
+      .results-pdf__textbox,
+      .results-pdf__id {
+        margin: 0 auto;
+        display: inline-block;
+      }
+
+      .results-pdf__textbox {
+        float: left;
+        margin: 0 0 0 10px;
+      }
+
+      .results-pdf__textbox-title {
+        font-size: 30px;
+        color: #179bf6;
+        margin: 0;
+      }
+
+      .results-pdf__textbox-date {
+        font-size: 14px;
+        color: #50515a;
+        margin: 0;
+        padding: 0;
+      }
+
+      .results-pdf__id {
+        color: #a7a9bc;
+        float: right;
+        margin: 0 20px 0 0;
+      }
+      .results-pdf__results-section {
+        position: absolute;
+        top: 30px;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        overflow: hidden;
+      }
+
+      .results-pdf__global {
+        position: absolute;
+        top: 50px;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .results-pdf__global-header {
+        overflow: hidden;
+        color: #fff;
+        font-weight: bold;
+        margin: 25px 20px 10px 20px;
+        padding: 10px;
+        background-color: #179bf6;
+        border-radius: 5px;
+        height: 20px;
+        text-align: center;
+      }
+
+      .results-pdf__global-title,
+      .results-pdf__global-score {
+        margin: 0 auto;
+        display: inline-block;
+        font-size: 16px;
+      }
+
+      .results-pdf__global-title {
+        float: left;
+      }
+
+      .results-pdf__global-score {
+        float: right;
+      }
+
+      .results-pdf__global-points {
+        color: #50515a;
+        margin: 10px 20px 10px 20px;
+        padding: 0;
+      }
+
+      .results-pdf__global-text {
+        font-size: 14px;
+        color: #50515a;
+        margin: 0 20px 0 20px;
+        padding: 0 20px 0 20px;
+        text-align: left;
+      }
+      .results-pdf__category-grid {
+        position: absolute;
+        top: 220px;
+        width: 100%;
+        height: fit-content;
+        border-top: solid 1px #179bf6;
+      }
+
+      .results-pdf__category-header {
+        overflow: hidden;
+        color: #fff;
+        font-weight: bold;
+        margin: 25px 20px 10px 20px;
+        padding: 10px;
+        background-color: #179bf6;
+        border-radius: 5px;
+        height: 20px;
+        text-align: center;
+      }
+
+      .results-pdf__category-title,
+      .results-pdf__category-score {
+        margin: 0 auto;
+        display: inline-block;
+        font-size: 16px;
+      }
+
+      .results-pdf__category-title {
+        font-size: 14px;
+        float: left;
+      }
+
+      .results-pdf__category-score {
+        font-size: 14px;
+        float: right;
+      }
+
+      .results-pdf__category-points {
+        color: #50515a;
+        margin: 0 20px 0 20px;
+        padding: 0;
+      }
+
+      .results-pdf__category-recommendation {
+        margin: 0 auto;
+        display: inline-block;
+        font-size: 14px;
+        color: #179bf6;
+        background-color: #e6f1f9;
+        width: 140px;
+        border-radius: 5px;
+        height: 25px;
+        margin: 10px 20px 10px 20px;
+        text-align: center;
+      }
+
+      .results-pdf__category-text {
+        font-size: 14px;
+        color: #50515a;
+        margin: 0 20px 0 20px;
+        padding: 0 20px 0 20px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="results-pdf" style="height: 1100px; width: 595px">
+      <div class="results-pdf__header">
+        <div class="results-pdf__textbox">
+          <h1 class="results-pdf__textbox-title">Nailted Client</h1>
+          <p class="results-pdf__textbox-date">{{date}}</p>
+        </div>
+        <p class="results-pdf__id">Informe nº: {{submissionId}}</p>
+      </div>
+      <div class="results-pdf__results-section">
+        <div class="results-pdf__global">
+          <div class="results-pdf__global-header">
+            <h2 class="results-pdf__global-title">Puntuación Global</h2>
+            <p class="results-pdf__global-score">
+              <script>
+                document.write(({{global.points}} / {{global.maxPoints}} * 100).toFixed(1) + '%');
+              </script>
+            </p>
+          </div>
+          <p class="results-pdf__global-points">Tu empresa ha obtenido {{global.points}} de {{global.maxPoints}} puntos posibles en el conjunto total de preguntas de la encuesta.</p>
+          <ul class="results-pdf__global-text">
+            {{#each global.globalFeedback}}
+            <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <div class="results-pdf__category-grid">
+          {{#each categories}}
+          <div class="results-pdf__category">
+            <div class="results-pdf__category-header">
+              <h2 class="results-pdf__category-title">{{name}}</h2>
+              <p class="results-pdf__category-score">
+                <script>
+                  document.write(({{points}} / {{maxPoints}} * 100).toFixed(1) + '%');
+                </script>
+              </p>
+            </div>
+            <p class="results-pdf__category-points">Tu empresa ha obtenido {{points}} de {{maxPoints}} puntos en {{name}}</p>
+            <h2 class="results-pdf__category-recommendation">Recomendaciones:</h2>
+            <ul class="results-pdf__category-text">
+              {{#each feedback.longText}}
+              <li>{{this}}</li>
+              {{/each}}
+            </ul>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
